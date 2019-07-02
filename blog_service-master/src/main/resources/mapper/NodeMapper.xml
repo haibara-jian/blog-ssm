@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolaoban.blog.mapper.NodeMapper">
+	<select id="getNodeBySkillId" parameterType="Integer" resultType="node">
+		select * from node where skillId=#{id}
+	</select>
+	<select id="getNodeIdBySkillId" parameterType="Integer" resultType="Integer">
+		select id from node where skillId=#{id}
+	</select>
+	<insert useGeneratedKeys="true" keyProperty="id" id="addNode" parameterType="node">
+		insert into node (indexNum,skillId,parentNodeId,name,text,remark) 
+		value (#{indexNum},#{skillId},#{parentNodeId},#{name},#{text},#{remark})
+	</insert>
+	<delete id="deleteNode" parameterType="Integer">
+		delete from node where id=#{id}
+	</delete>
+	<update id="updateNode" parameterType="node">
+		update node set 
+		indexNum=#{indexNum},skillId=#{skillId},parentNodeId=#{parentNodeId},name=#{name},text=#{text},remark=#{remark} 
+		where id=#{id}
+	</update>
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolaoban.blog.mapper.CodeMapper">
+	<select id="getCodeByNodeId" parameterType="Integer" resultType="code">
+		select * from code where nodeId = #{id}
+	</select>
+	<insert id="addCode" parameterType="code">
+		insert into code (codeStr,nodeId) values(#{codeStr},#{nodeId})
+	</insert>
+</mapper>

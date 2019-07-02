@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolaoban.blog.mapper.SkillMapper">
+	<select id="getUserSkills" parameterType="Integer" resultType="skill">
+		SELECT * FROM blog.skill where userId=#{x}
+	</select>
+	<insert id="addSkill" parameterType="skill">
+		insert into skill (userId,name,updatedTime) values (#{userId},#{name},#{updateTime})
+	</insert>
+	<insert id="addSkill_HavePre" parameterType="skill">
+		insert into skill (userId,name,preSkill,updatedTime) values (#{userId},#{name},#{preSkill},#{updateTime})
+	</insert>
+	<delete id="deleteSkill" parameterType="Integer">delete from skill where id = #{id}</delete>
+	<!--
+
+	 查询（parameterType指定传入参数类型，resultType指定返回基本数据类型/resultMap指定返回映射id） 
+	<select id="" parameterType="" resultType=""/resultMap="">
+		插入sql标签设定的语句，refid对应sql标签的id 
+		<include refid=""/>
+	sql语句(使用#{属性名称}引用传入参数，基本类型使用#{id}引用)
+	</select>
+	
+	
+	 插入（useGeneratedKeys是否返回插入数据的主键， keyProperty只将主键返回到pojo对象的那个属性
+	<insert id="" parameterType=""  useGeneratedKeys="true/false" keyProperty=""></insert>
+	 
+	 
+	 更新 
+	<update id="" parameterType="" ></update>
+	 
+	 
+	 删除 
+	<delete id="" parameterType=""></delete>
+	 
+	 
+	 配置sql语句重复使用 
+	<sql id=""></sql>
+	
+	
+	配置查询的返回映射（type指定返回的pojo对象 
+	<resultMap type="" id="">
+		 映射主键（property指定pojo对象的属性，column指定数据的列名
+		<id property="" column=""></id>
+		 映射字段 
+		<result property="" column=""></result>
+		 一对一联合查询（select指定另一条查询的id，javaType指定pojo对象，fatchType是否使用延迟加载 
+		<association javaType="" property="" fatchType="" select="">
+			<id></id>
+			<result></result>
+		</association>
+		 一对多查询 
+		<collection property="" ></collection>	
+	</resultMap>
+	-->
+</mapper>

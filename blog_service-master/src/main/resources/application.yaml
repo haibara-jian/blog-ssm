@@ -1,0 +1,11 @@
+spring: 
+   datasource:
+      pool-name: mysql-pool 
+      url: "jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=GMT%2B8&useSSL=false"
+      username: haibara
+      password: 326243hy
+mybatis: 
+   mapper-locations: classpath:mapper/*.xml
+   type-aliases-package: com.xiaolaoban.blog.pojo
+server: 
+   port: 60000

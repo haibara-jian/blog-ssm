@@ -8,4 +8,4 @@ mybatis:
    mapper-locations: classpath:mapper/*.xml
    type-aliases-package: com.xiaolaoban.blog.pojo
 server: 
-   port: 60000
+   port: 8080
